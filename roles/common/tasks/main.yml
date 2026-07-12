@@ -3,9 +3,9 @@
 #
 ---
 - name: Update apt cache
-  apt:
-    update_cache: yes
+  ansible.builtin.apt:
+    update_cache: true
 
-- name: Upgrade installed packages
-  apt:
+- name: Upgrade packages
+  ansible.builtin.apt:
     upgrade: dist

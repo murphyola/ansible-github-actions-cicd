@@ -2,7 +2,7 @@
 ---
 - name: Configure Web Servers
   hosts: webservers
-  become: yes
+  become: true
 
   roles:
     - common
