@@ -2,13 +2,15 @@
 # tasks file for roles/nginx
 
 ---
+# SPDX-License-Identifier: MIT-0
+
 - name: Install Nginx
-  apt:
+  ansible.builtin.apt:
     name: nginx
     state: present
 
 - name: Start and enable Nginx
-  service:
+  ansible.builtin.service:
     name: nginx
     state: started
-    enabled: yes
+    enabled: true
