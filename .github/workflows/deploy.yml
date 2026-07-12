@@ -1,0 +1,34 @@
+name: Ansible CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Ansible
+        run: |
+          sudo apt update
+          sudo apt install -y ansible
+          pip install ansible-lint
+
+      - name: Run Ansible Lint
+        run: ansible-lint playbooks/site.yml
+
+      - name: Deploy to Control Node
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.CONTROL_NODE_IP }}
+          username: ubuntu
+          key: ${{ secrets.CONTROL_NODE_SSH_KEY }}
+          script: |
+            cd ~/ansible-github-actions-cicd
+            git pull origin main
+            ansible-playbook playbooks/site.yml
