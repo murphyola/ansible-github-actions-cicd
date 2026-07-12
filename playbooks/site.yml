@@ -1,0 +1,14 @@
+---
+- name: Configure Web Servers
+  hosts: webservers
+  become: yes
+
+  tasks:
+
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Upgrade packages
+      apt:
+        upgrade: dist
