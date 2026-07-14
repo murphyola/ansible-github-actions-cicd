@@ -5,6 +5,7 @@
 ![AWS](https://img.shields.io/badge/AWS-EC2-orange?logo=amazonaws)
 ![Ubuntu](https://img.shields.io/badge/Ubuntu-24.04-E95420?logo=ubuntu)
 ![License](https://img.shields.io/badge/License-MIT-green)
+![EC2 Instances](screenshots/ec2-instances.png)
 
 ## 📌 Project Overview
 
