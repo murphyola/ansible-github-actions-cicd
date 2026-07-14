@@ -1,4 +1,3 @@
-
 ---
 - name: Configure Web Servers
   hosts: webservers
